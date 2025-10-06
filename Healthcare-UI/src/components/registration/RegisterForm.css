@@ -10,6 +10,21 @@ html, body {
   overflow: hidden;
 }
 
+.logo{
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  width: 210px;
+  height: auto;
+  z-index: 5;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.logo img{
+  width: 150px;
+  border-radius: 50%;
+}
+
 /* Background setup */
 .register-page {
   position: relative;
@@ -23,16 +38,6 @@ html, body {
   backdrop-filter: blur(4px);
 }
 
-/* Logo on top-left */
-.register-logo {
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  width: 120px;
-  height: auto;
-  z-index: 5;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
-}
 
 /* Main form container */
 .register-container {
