@@ -28,14 +28,16 @@ html, body {
 /* Background setup */
 .register-page {
   position: relative;
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  background: url("https://images.unsplash.com/photo-1533750349088-cd871a92f312")
-    no-repeat center center/cover;
+  background: url("../../assets/logoImage/Pune_Municipal_Corporation_building.jpg");
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(4px);
+  /* backdrop-filter: blur(4px); */
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
 }
 
 
@@ -49,7 +51,7 @@ html, body {
 
 /* Form Card */
 .register-form {
-  background: rgba(255, 255, 255, 0.97);
+  background: rgba(197, 233, 238, 0.97);
   padding: 2rem;
   border-radius: 1.5rem;
   width: 400px;
