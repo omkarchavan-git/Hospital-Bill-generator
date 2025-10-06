@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";  
+import { useNavigate } from "react-router-dom";
 import "./RegisterForm.css";
-// import logo from "../assets/logo.png";
+// import logo from "../assets/logo.png"; // ✅ Make sure this path is correct
 
 function RegisterForm() {
   const [formData, setFormData] = useState({
@@ -13,7 +13,7 @@ function RegisterForm() {
   });
 
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();  
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -45,7 +45,7 @@ function RegisterForm() {
           confirmPassword: "",
         });
 
-        // ✅ redirect to login page after 1.5 sec
+        // redirect after 1.5 seconds
         setTimeout(() => navigate("/login"), 1500);
       } else {
         const errorText = await response.text();
@@ -58,7 +58,7 @@ function RegisterForm() {
 
   return (
     <div className="register-page">
-      <img src={logo} alt="Logo" className="register-logo" />
+      {/* <img src={logo} alt="Logo" className="register-logo" /> */}
 
       <div className="register-container">
         <form onSubmit={handleSubmit} className="register-form">
@@ -109,10 +109,25 @@ function RegisterForm() {
             required
           />
 
-          <button type="submit" className="register-btn">Register</button>
-          <button type="button" className="cancel-btn">Cancel</button>
+          <button type="submit" className="register-btn">
+            Register
+          </button>
+          <button
+            type="button"
+            className="cancel-btn"
+            onClick={() =>
+              setFormData({
+                fullname: "",
+                email: "",
+                username: "",
+                password: "",
+                confirmPassword: "",
+              })
+            }
+          >
+            Cancel
+          </button>
 
-          {/*  Login link navigation */}
           <div className="login-link">
             Already have an account?{" "}
             <span onClick={() => navigate("/login")}>Login</span>
