@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginForm.css";
+import logo from "../../assets/logoImage/logo.jpg";
 
 function LoginForm() {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -19,52 +20,57 @@ function LoginForm() {
   };
 
   return (
-    <div className="login-container">
-      <form onSubmit={handleSubmit} className="login-form">
-        <h2>Login</h2>
+    <>
+      <div className="logo">
+       <img src={logo} alt="Logo preview" />
+      </div>
+      <div className="login-container">
+        <form onSubmit={handleSubmit} className="login-form">
+          <h2>Login</h2>
 
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={formData.username}
-          onChange={(e) =>
-            setFormData({ ...formData, username: e.target.value })
-          }
-          required
-        />
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            value={formData.username}
+            onChange={(e) =>
+              setFormData({ ...formData, username: e.target.value })
+            }
+            required
+          />
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={(e) =>
-            setFormData({ ...formData, password: e.target.value })
-          }
-          required
-        />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={formData.password}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
+            required
+          />
 
-        <button type="submit" className="login-btn">
-          Login
-        </button>
+          <button type="submit" className="login-btn">
+            Login
+          </button>
 
-        <button
-          type="button"
-          className="cancel-btn"
-          onClick={() => setFormData({ username: "", password: "" })}
-        >
-          Cancel
-        </button>
+          <button
+            type="button"
+            className="cancel-btn"
+            onClick={() => setFormData({ username: "", password: "" })}
+          >
+            Cancel
+          </button>
 
-        <p className="register-link">
-          Don’t have an account?{" "}
-          <span onClick={onRegisterClick}>Create Account</span>
-        </p>
+          <p className="register-link">
+            Don’t have an account?{" "}
+            <span onClick={onRegisterClick}>Create Account</span>
+          </p>
 
-        {message && <p className="message">{message}</p>}
-      </form>
-    </div>
+          {message && <p className="message">{message}</p>}
+        </form>
+      </div>
+    </>
   );
 }
 
