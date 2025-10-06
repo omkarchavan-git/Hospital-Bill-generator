@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./RegisterForm.css";
-// import logo from "../assets/logo.png"; // ✅ Make sure this path is correct
+import logo from "../../assets/logoImage/logo.jpg";
+
 
 function RegisterForm() {
   const [formData, setFormData] = useState({
@@ -58,7 +59,9 @@ function RegisterForm() {
 
   return (
     <div className="register-page">
-      {/* <img src={logo} alt="Logo" className="register-logo" /> */}
+      <div className="logo" >
+        <img src={logo} alt="Logo preview" />
+      </div>
 
       <div className="register-container">
         <form onSubmit={handleSubmit} className="register-form">
