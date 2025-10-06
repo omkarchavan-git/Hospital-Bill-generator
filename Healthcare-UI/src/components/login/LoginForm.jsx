@@ -1,51 +1,54 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./LoginForm.css";
 
-function LoginForm({ onRegisterClick }) {
+function LoginForm() {
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  // 👇 Define this function for navigation
+  const onRegisterClick = () => {
+    navigate("/register"); // redirects to RegisterForm route
   };
 
-  const handleLogin = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const res = await fetch("http://localhost:8085/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      if (res.ok) {
-        setMessage("✅ Login successful!");
-      } else {
-        setMessage("❌ Invalid credentials!");
-      }
-    } catch {
-      setMessage("⚠️ Server not reachable");
-    }
+    // Handle login logic here
+    setMessage("Login successful!");
   };
 
   return (
-    <div className="login-container card">
-      <form className="login-form" onSubmit={handleLogin}>
+    <div className="login-container">
+      <form onSubmit={handleSubmit} className="login-form">
         <h2>Login</h2>
+
         <input
           type="text"
           name="username"
           placeholder="Username"
           value={formData.username}
-          onChange={handleChange}
+          onChange={(e) =>
+            setFormData({ ...formData, username: e.target.value })
+          }
+          required
         />
+
         <input
           type="password"
           name="password"
           placeholder="Password"
           value={formData.password}
-          onChange={handleChange}
+          onChange={(e) =>
+            setFormData({ ...formData, password: e.target.value })
+          }
+          required
         />
-        <button type="submit" className="login-btn">Login</button>
+
+        <button type="submit" className="login-btn">
+          Login
+        </button>
+
         <button
           type="button"
           className="cancel-btn"
@@ -53,10 +56,12 @@ function LoginForm({ onRegisterClick }) {
         >
           Cancel
         </button>
+
         <p className="register-link">
           Don’t have an account?{" "}
           <span onClick={onRegisterClick}>Create Account</span>
         </p>
+
         {message && <p className="message">{message}</p>}
       </form>
     </div>
