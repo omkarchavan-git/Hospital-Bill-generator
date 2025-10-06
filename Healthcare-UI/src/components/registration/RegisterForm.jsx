@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import "./Registration.css";
-import logo from "../assets/logo.png"; // keep your logo image in src/assets/
+import { useNavigate } from "react-router-dom";  
+import "./RegisterForm.css";
+// import logo from "../assets/logo.png";
 
-function Registration() {
+function RegisterForm() {
   const [formData, setFormData] = useState({
     fullname: "",
     email: "",
@@ -12,14 +13,13 @@ function Registration() {
   });
 
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();  
 
-  // handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -44,6 +44,9 @@ function Registration() {
           password: "",
           confirmPassword: "",
         });
+
+        // ✅ redirect to login page after 1.5 sec
+        setTimeout(() => navigate("/login"), 1500);
       } else {
         const errorText = await response.text();
         setMessage(`❌ Failed: ${errorText}`);
@@ -109,8 +112,10 @@ function Registration() {
           <button type="submit" className="register-btn">Register</button>
           <button type="button" className="cancel-btn">Cancel</button>
 
+          {/*  Login link navigation */}
           <div className="login-link">
-            Already have an account? <span>Login</span>
+            Already have an account?{" "}
+            <span onClick={() => navigate("/login")}>Login</span>
           </div>
 
           {message && <p className="message">{message}</p>}
@@ -120,4 +125,4 @@ function Registration() {
   );
 }
 
-export default Registration;
+export default RegisterForm;
