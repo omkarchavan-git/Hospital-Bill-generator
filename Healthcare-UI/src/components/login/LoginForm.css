@@ -16,8 +16,7 @@ html, body {
   position: relative;
   height: 100vh;
   width: 100%;
-  background: url("https://images.unsplash.com/photo-1522199710521-72d69614c702")
-    no-repeat center center/cover;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,6 +41,8 @@ html, body {
 /* Centered card container */
 .login-container {
   display: flex;
+background-repeat: no-repeat;
+background-size: cover;
   justify-content: center;
   align-items: center;
   height: 100%;
