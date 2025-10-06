@@ -5,21 +5,12 @@
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-  font-family: "Poppins", sans-serif;
-  overflow: hidden;
-}
 
 /* Main page container with bg image */
 .login-page {
   position: relative;
   height: 100vh;
   width: 100%;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
   backdrop-filter: blur(3px);
 }
 
@@ -28,21 +19,20 @@ html, body {
   position: absolute;
   top: 20px;
   left: 30px;
-  width: 120px;
+  width: 50px;
   height: auto;
   z-index: 5;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
-.logo img{
+.logo img {
   border-radius: 50%;
+  width: 50px;
 }
 
 /* Centered card container */
 .login-container {
   display: flex;
-background-repeat: no-repeat;
-background-size: cover;
   justify-content: center;
   align-items: center;
   height: 100%;
@@ -50,7 +40,7 @@ background-size: cover;
 
 /* Card-like form */
 .login-form {
-  background: rgba(255, 255, 255, 0.95);
+  /* background: rgba(255, 255, 255, 0.95); */
   padding: 2rem;
   border-radius: 1.5rem;
   width: 380px;
@@ -63,6 +53,7 @@ background-size: cover;
   animation: fadeIn 0.8s ease;
   transform: translateY(0);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid black;
 }
 
 .login-form:hover {
@@ -82,7 +73,7 @@ background-size: cover;
   width: 100%;
   margin: 10px 0;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1px solid #000000;
   border-radius: 8px;
   font-size: 1rem;
   background-color: #fff;
@@ -95,7 +86,8 @@ background-size: cover;
   outline: none;
 }
 
-.login-btn, .cancel-btn {
+.login-btn,
+.cancel-btn {
   width: 100%;
   padding: 12px;
   margin-top: 12px;
@@ -143,6 +135,13 @@ background-size: cover;
 
 /* Fade-in animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
