@@ -23,6 +23,7 @@ function RegisterForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setMessage(""); // clear old messages
 
     if (formData.password !== formData.confirmPassword) {
       setMessage("⚠️ Passwords do not match!");
@@ -36,6 +37,9 @@ function RegisterForm() {
         body: JSON.stringify(formData),
       });
 
+      // Handle plain text or JSON response
+      const textResponse = await response.text();
+
       if (response.ok) {
         setMessage("✅ Registration successful!");
         setFormData({
@@ -46,16 +50,16 @@ function RegisterForm() {
           confirmPassword: "",
         });
 
-        // redirect after 1.5 seconds
-        setTimeout(() => navigate("/login"), 1500);
+        // Keep message visible for 2 seconds before redirecting
+        setTimeout(() => navigate("/login"), 2000);
       } else {
-        const errorText = await response.text();
-        setMessage(`❌ Failed: ${errorText}`);
+        setMessage(`❌ ${textResponse || "Registration failed!"}`);
       }
     } catch (error) {
       setMessage("⚠️ Error connecting to server!");
     }
   };
+
 
   return (
     <div className="register-page">
@@ -136,7 +140,15 @@ function RegisterForm() {
             <span onClick={() => navigate("/login")}>Login</span>
           </div>
 
-          {message && <p className="message">{message}</p>}
+          {message && (
+            <p
+              className={`message ${message.includes("✅") ? "success" : message.includes("❌") ? "error" : ""
+                }`}
+            >
+              {message}
+            </p>
+          )}
+
         </form>
       </div>
     </div>
