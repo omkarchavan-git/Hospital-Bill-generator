@@ -18,4 +18,10 @@ public class UserdataServiceImpl implements UserdataService {
     Userdata user =   userdataRepo.save(userdata);
         return user;
     }
+
+    @Override
+    public Userdata checkuserdetails(String username, String password) {
+     Userdata user =    userdataRepo.findByUsernameAndPassword(username, password);
+        return user;
+    }
 }
