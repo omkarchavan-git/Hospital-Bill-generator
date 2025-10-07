@@ -13,11 +13,34 @@ function LoginForm() {
     navigate("/register"); // redirects to RegisterForm route
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle login logic here
-    setMessage("Login successful!");
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setMessage(""); // clear old messages
+
+  try {
+    const response = await fetch("http://localhost:8082/userdata/logindetails", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username: formData.username,
+        password: formData.password,
+      }),
+    });
+
+    const textResponse = await response.text();
+
+    if (response.ok) {
+      setMessage("✅ Login successful!");
+      // redirect after short delay
+      setTimeout(() => navigate("/dashboard"), 1500);
+    } else {
+      setMessage(`❌ ${textResponse || "Invalid username or password!"}`);
+    }
+  } catch (error) {
+    setMessage("⚠️ Server not reachable. Please try again later.");
+  }
+};
+
 
   return (
     <>
