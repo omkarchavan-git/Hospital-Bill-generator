@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginForm.css";
-import logo from "../../assets/logoImage/logo.jpg";
+import logo from "../../assets/logoImage/PMCLOGO.webp";
 
 function LoginForm() {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -48,6 +48,9 @@ const handleSubmit = async (e) => {
        <img src={logo} alt="Logo preview" />
       </div>
       <div className="login-container">
+        <div className="welcomebox"> Welcome! <br />  
+          <p>Login By Entering the Information Below</p> </div>
+
         <form onSubmit={handleSubmit} className="login-form">
           <h2>Login</h2>
 
@@ -77,14 +80,14 @@ const handleSubmit = async (e) => {
             Login
           </button>
 
-          <button
+          {/* <button
             type="button"
             className="cancel-btn"
             onClick={() => setFormData({ username: "", password: "" })}
           >
             Cancel
-          </button>
-
+          </button> */}
+  <p>OR</p>
           <p className="register-link">
             Don’t have an account?{" "}
             <span onClick={onRegisterClick}>Create Account</span>
