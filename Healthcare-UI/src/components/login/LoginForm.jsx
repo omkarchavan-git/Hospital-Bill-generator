@@ -48,7 +48,7 @@ const handleSubmit = async (e) => {
        <img src={logo} alt="Logo preview" />
       </div>
       <div className="login-container">
-        <div className="welcomebox"> Welcome! <br />  
+        <div className="welcomebox"> <h2> Welcome!  </h2> 
           <p>Login By Entering the Information Below</p> </div>
 
         <form onSubmit={handleSubmit} className="login-form">
@@ -75,6 +75,8 @@ const handleSubmit = async (e) => {
             }
             required
           />
+
+          <div className="forgetaction">I forgot password</div>
 
           <button type="submit" className="login-btn">
             Login
