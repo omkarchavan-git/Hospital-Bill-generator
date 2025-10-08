@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./RegisterForm.css";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logoImage/PMCLOGO.webp";
 import { FaUser, FaEnvelope, FaLock, FaPhone } from "react-icons/fa";
 
@@ -15,6 +16,9 @@ function RegisterForm() {
 
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+ 
+
+  //on login click
 
   // ✅ Handle input changes
   const handleChange = (e) => {
@@ -86,14 +90,15 @@ function RegisterForm() {
 
   return (
     <>
-      <div className="logo">
+      <div className="registerlogo">
         <img src={logo} alt="Logo preview" />
         <h2>Pune Municipal Corporation</h2>
       </div>
+
       <div className="register-page">
         <form className="register-form" onSubmit={handleSubmit}>
           <div className="registerbox"> <h2> Welcome!  </h2>
-            <p className="subtitle">Sign up by entering the information below</p>
+            <p>Sign up by entering the information below</p>
           </div>
 
           <div className="form-row">
@@ -182,8 +187,9 @@ function RegisterForm() {
           {error && <p className="error-msg">{error}</p>}
 
           <p className="login-text">
-            Already have an account? <span>Login here</span>
+            Already have an account? <Link to="/login">Login here</Link>
           </p>
+
         </form>
       </div>
     </>
