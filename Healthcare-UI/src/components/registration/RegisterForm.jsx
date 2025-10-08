@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./RegisterForm.css";
+import logo from "../../assets/logoImage/PMCLOGO.webp";
 import { FaUser, FaEnvelope, FaLock, FaPhone } from "react-icons/fa";
 
 function RegisterForm() {
@@ -84,101 +85,108 @@ function RegisterForm() {
   };
 
   return (
-    <div className="register-page">
-      <form className="register-form" onSubmit={handleSubmit}>
-        <h2>Registration</h2>
-        <p className="subtitle">Sign up by entering the information below</p>
-
-        <div className="form-row">
-          <div className="input-group">
-            <FaUser className="icon" />
-            <input
-              type="text"
-              name="firstname"
-              value={formData.firstname}
-              onChange={handleChange}
-              required
-            />
-            <label>Firstname *</label>
+    <>
+      <div className="logo">
+        <img src={logo} alt="Logo preview" />
+        <h2>Pune Municipal Corporation</h2>
+      </div>
+      <div className="register-page">
+        <form className="register-form" onSubmit={handleSubmit}>
+          <div className="registerbox"> <h2> Welcome!  </h2>
+            <p className="subtitle">Sign up by entering the information below</p>
           </div>
 
-          <div className="input-group">
-            <FaUser className="icon" />
-            <input
-              type="text"
-              name="lastname"
-              value={formData.lastname}
-              onChange={handleChange}
-              required
-            />
-            <label>Lastname *</label>
-          </div>
-        </div>
+          <div className="form-row">
+            <div className="input-group">
+              <FaUser className="icon" />
+              <input
+                type="text"
+                name="firstname"
+                value={formData.firstname}
+                onChange={handleChange}
+                required
+              />
+              <label>Firstname *</label>
+            </div>
 
-        <div className="form-row">
-          <div className="input-group">
-            <FaEnvelope className="icon" />
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            <label>Email *</label>
-          </div>
-
-          <div className="input-group">
-            <FaPhone className="icon" />
-            <input
-              type="text"
-              name="mobile"
-              value={formData.mobile}
-              onChange={handleChange}
-              required
-            />
-            <label>Mobile Number *</label>
-          </div>
-        </div>
-
-        <div className="form-row">
-          <div className="input-group">
-            <FaLock className="icon" />
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
-            <label>Password *</label>
+            <div className="input-group">
+              <FaUser className="icon" />
+              <input
+                type="text"
+                name="lastname"
+                value={formData.lastname}
+                onChange={handleChange}
+                required
+              />
+              <label>Lastname *</label>
+            </div>
           </div>
 
-          <div className="input-group">
-            <FaLock className="icon" />
-            <input
-              type="password"
-              name="confirmPassword"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              required
-            />
-            <label>Confirm Password *</label>
+          <div className="form-row">
+            <div className="input-group">
+              <FaEnvelope className="icon" />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              <label>Email *</label>
+            </div>
+
+            <div className="input-group">
+              <FaPhone className="icon" />
+              <input
+                type="text"
+                name="mobile"
+                value={formData.mobile}
+                onChange={handleChange}
+                required
+              />
+              <label>Mobile Number *</label>
+            </div>
           </div>
-        </div>
 
-        <button type="submit" className="signup-btn">
-          Sign up
-        </button>
+          <div className="form-row">
+            <div className="input-group">
+              <FaLock className="icon" />
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+              <label>Password *</label>
+            </div>
 
-        {message && <p className="success-msg">{message}</p>}
-        {error && <p className="error-msg">{error}</p>}
+            <div className="input-group">
+              <FaLock className="icon" />
+              <input
+                type="password"
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                required
+              />
+              <label>Confirm Password *</label>
+            </div>
+          </div>
 
-        <p className="login-text">
-          Already have an account? <span>Login here</span>
-        </p>
-      </form>
-    </div>
+          <button type="submit" className="signup-btn">
+            Sign up
+          </button>
+
+          {message && <p className="success-msg">{message}</p>}
+          {error && <p className="error-msg">{error}</p>}
+
+          <p className="login-text">
+            Already have an account? <span>Login here</span>
+          </p>
+        </form>
+      </div>
+    </>
   );
 }
 
