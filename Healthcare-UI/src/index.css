@@ -14,6 +14,6 @@
 body {
   background: linear-gradient(rgba(128, 128, 128, 0.4), 
       rgba(128, 128, 128, 0.4)),
-  url("../src/assets/logoImage/Pune_Municipal_Corporation_building.jpg");
+  url("../src/assets/logoImage/pmc_building.jpg");
   background-size: cover;
 }
