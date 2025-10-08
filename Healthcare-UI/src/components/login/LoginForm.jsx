@@ -8,7 +8,7 @@ function LoginForm() {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
-  // 👇 Define this function for navigation
+ //function for navigation
   const onRegisterClick = () => {
     navigate("/register"); // redirects to RegisterForm route
   };
