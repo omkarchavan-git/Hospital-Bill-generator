@@ -52,7 +52,7 @@ const handleSubmit = async (e) => {
           <p>Login By Entering the Information Below</p> </div>
 
         <form onSubmit={handleSubmit} className="login-form">
-          <h2>Login</h2>
+          <h2></h2>
 
           <input
             type="text"
