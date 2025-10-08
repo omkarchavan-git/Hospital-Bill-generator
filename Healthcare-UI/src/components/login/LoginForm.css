@@ -87,9 +87,13 @@
   outline: none;
 }
 
-.login-btn,
-.cancel-btn {
-  width: 100%;
+.forgetaction{
+  display: flex;
+  color: #a91b43;
+  justify-content: end;
+}
+.login-btn {
+  width: 50%;
   padding: 12px;
   margin-top: 12px;
   border: none;
@@ -99,13 +103,14 @@
   transition: all 0.3s ease;
 }
 
+
 .login-btn {
-  background-color: #ff6a00;
+  background-color: #a91b43;
   color: #fff;
 }
 
 .login-btn:hover {
-  background-color: #e45b00;
+  background-color: #a91b43;
   box-shadow: 0 0 10px rgba(255, 106, 0, 0.5);
 }
 
@@ -124,7 +129,7 @@
 }
 
 .register-link span {
-  color: #ff6a00;
+  color: #a91b43;
   cursor: pointer;
   font-weight: bold;
   transition: color 0.3s;
@@ -149,12 +154,12 @@
 
 .welcomebox {
   position: absolute;
-  top: 50%;
+  top: 52%;
   /* center inside container */
   transform: translateY(-180%);
   /* move it upward to overlap */
   width: 250px;
-  height: 100px;
+  height: 120px;
   background-color: #a91b43;
   color: white;
   border-radius: 10px;
@@ -163,4 +168,10 @@
   font-weight: bold;
   z-index: 10;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.welcomebox h2{
+ letter-spacing: 5px;
+}
+.welcomebox hr{
+color: #000000;
 }
