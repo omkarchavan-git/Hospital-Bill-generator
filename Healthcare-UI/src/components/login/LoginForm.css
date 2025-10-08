@@ -11,7 +11,7 @@
   position: relative;
   height: 100vh;
   width: 100%;
-  backdrop-filter: blur(3px);
+ 
 }
 
 /* Top-left logo */
@@ -34,13 +34,14 @@
 .login-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* centers vertically */
   height: 100%;
+  position: relative; 
 }
-
-/* Card-like form */
+ 
 .login-form {
-  /* background: rgba(255, 255, 255, 0.95); */
+  position: relative;  
+  background: rgba(255, 255, 255, 0.95);
   padding: 2rem;
   border-radius: 1.5rem;
   width: 380px;
@@ -49,11 +50,11 @@
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.3),
     0 0 20px rgba(255, 106, 0, 0.2);
-  backdrop-filter: blur(8px);
   animation: fadeIn 0.8s ease;
   transform: translateY(0);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   border: 1px solid black;
+  margin-top: 100px;  
 }
 
 .login-form:hover {
@@ -144,4 +145,21 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.welcomebox {
+  position: absolute;
+  top: 50%;  /* center inside container */
+  transform: translateY(-180%); /* move it upward to overlap */
+  width: 250px;
+  height: 100px;
+  background-color: #a91b43;
+  color: white;
+  border-radius: 10px;
+ padding: 10px;
+ 
+   
+  font-weight: bold;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
