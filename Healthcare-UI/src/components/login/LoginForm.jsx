@@ -13,74 +13,83 @@ function LoginForm() {
     navigate("/register"); // redirects to RegisterForm route
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setMessage(""); // clear old messages
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage(""); // clear old messages
 
-  try {
-    const response = await fetch("http://localhost:8082/userdata/logindetails", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        username: formData.username,
-        password: formData.password,
-      }),
-    });
+    try {
+      const response = await fetch("http://localhost:8082/userdata/logindetails", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: formData.username,
+          password: formData.password,
+        }),
+      });
 
-    const textResponse = await response.text();
+      const textResponse = await response.text();
 
-    if (response.ok) {
-      setMessage("✅ Login successful!");
-      // redirect after short delay
-      setTimeout(() => navigate("/dashboard"), 1500);
-    } else {
-      setMessage(`❌ ${textResponse || "Invalid username or password!"}`);
+      if (response.ok) {
+        setMessage("✅ Login successful!");
+        // redirect after short delay
+        setTimeout(() => navigate("/dashboard"), 1500);
+      } else {
+        setMessage(`❌ ${textResponse || "Invalid username or password!"}`);
+      }
+    } catch (error) {
+      setMessage("⚠️ Server not reachable. Please try again later.");
     }
-  } catch (error) {
-    setMessage("⚠️ Server not reachable. Please try again later.");
-  }
-};
+  };
 
 
   return (
     <>
       <div className="logo">
-       <img src={logo} alt="Logo preview" />
+        <img src={logo} alt="Logo preview" />
+        <h2>Pune Municipal Corporation</h2>
       </div>
       <div className="login-container">
-        <div className="welcomebox"> <h2> Welcome!  </h2> 
+        <div className="welcomebox"> <h2> Welcome!  </h2>
           <p>Login By Entering the Information Below</p> </div>
 
         <form onSubmit={handleSubmit} className="login-form">
           <h2></h2>
 
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={formData.username}
-            onChange={(e) =>
-              setFormData({ ...formData, username: e.target.value })
-            }
-            required
-          />
+          <div className="input-group">
+            <input
+              type="text"
+              name="username"
+              value={formData.username}
+              onChange={(e) =>
+                setFormData({ ...formData, username: e.target.value })
+              }
+              required
+            />
+            <label>Email / Mobile :</label>
+          </div>
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
-            }
-            required
-          />
+          <div className="input-group">
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+              required
+            />
+            <label>Password :</label>
+          </div>
+
 
           <div className="forgetaction">I forgot password</div>
 
-          <button type="submit" className="login-btn">
-            Login
-          </button>
+          <button type="submit" className="login-btn">Login</button>
+          <p>OR</p>
+          <p className="register-link">
+            Don’t have an account? <span onClick={onRegisterClick}>Create Account</span>
+          </p>
+          {message && <p className="message">{message}</p>}
 
           {/* <button
             type="button"
@@ -89,13 +98,7 @@ const handleSubmit = async (e) => {
           >
             Cancel
           </button> */}
-  <p>OR</p>
-          <p className="register-link">
-            Don’t have an account?{" "}
-            <span onClick={onRegisterClick}>Create Account</span>
-          </p>
 
-          {message && <p className="message">{message}</p>}
         </form>
       </div>
     </>
