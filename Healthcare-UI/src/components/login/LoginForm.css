@@ -5,29 +5,37 @@
   box-sizing: border-box;
 }
 
-
 /* Main page container with bg image */
 .login-page {
   position: relative;
   height: 100vh;
   width: 100%;
-
 }
 
-/* Top-left logo */
+/*  logo */
 .logo {
   position: absolute;
   top: 20px;
   left: 30px;
-  width: 30px;
+
   height: auto;
   z-index: 5;
+  color: #a91b43;
+  display: flex;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .logo img {
-  /* border-radius: 50%; */
-  width: 30px;
+
+  width: 40px;
+  margin: 10px;
+  display: block;
+
+}
+
+.logo h2 {
+  margin-top: 27px;
+  display: block;
 }
 
 /* Centered card container */
@@ -40,10 +48,11 @@
   position: relative;
 }
 
+/* Login form css */
 .login-form {
   position: relative;
   background: rgba(255, 255, 255, 0.95);
-  padding: 2rem;
+  padding: 3rem;
   border-radius: 1.5rem;
   width: 380px;
   text-align: center;
@@ -70,39 +79,26 @@
   color: #000;
 }
 
-.login-form input {
-  width: 100%;
-  margin: 10px 0;
-  padding: 12px;
-  border: 1px solid #000000;
-  border-radius: 8px;
-  font-size: 1rem;
-  background-color: #fff;
-  transition: border 0.3s, box-shadow 0.3s;
-}
 
-.login-form input:focus {
-  border: 1px solid #ff6a00;
-  box-shadow: 0 0 8px rgba(255, 106, 0, 0.4);
-  outline: none;
-}
 
-.forgetaction{
+/* Forget Option */
+.forgetaction {
   display: flex;
   color: #a91b43;
   justify-content: end;
 }
+
+/* Loginn Button */
 .login-btn {
   width: 50%;
   padding: 12px;
-  margin-top: 12px;
+  margin-top: 50px;
   border: none;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 
 .login-btn {
   background-color: #a91b43;
@@ -154,10 +150,8 @@
 
 .welcomebox {
   position: absolute;
-  top: 52%;
-  /* center inside container */
+  top: 45%;
   transform: translateY(-180%);
-  /* move it upward to overlap */
   width: 250px;
   height: 120px;
   background-color: #a91b43;
@@ -169,9 +163,61 @@
   z-index: 10;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-.welcomebox h2{
- letter-spacing: 5px;
+
+.welcomebox h2 {
+  letter-spacing: 5px;
 }
-.welcomebox hr{
-color: #000000;
+
+.welcomebox p {
+  font-size: 13px;
+}
+
+.welcomebox hr {
+  color: #000000;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+/* Input field styling */
+.form-container {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px 5px;
+  border: none;
+  border-bottom: 2px solid #a91b43;
+  font-size: 16px;
+  background: transparent;
+  outline: none;
+}
+
+.input-group label {
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  color: #494848;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.3s ease all;
+}
+
+/* When focused or input has value */
+.input-group input:focus~label,
+.input-group input:valid~label {
+  top: -10px;
+  font-size: 13px;
+  color: #a91b43;
 }
