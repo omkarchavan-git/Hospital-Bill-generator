@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LoginForm.css";
 import logo from "../../assets/logoImage/PMCLOGO.webp";
+import { FaUser, FaEnvelope, FaLock, FaPhone } from "react-icons/fa";
 
 function LoginForm() {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -56,10 +57,12 @@ function LoginForm() {
           <h2></h2>
 
           <div className="input-group">
+             <FaEnvelope className="icon" />
             <input
               type="text"
               name="username"
               value={formData.username}
+              
               onChange={(e) =>
                 setFormData({ ...formData, username: e.target.value })
               }
@@ -69,6 +72,7 @@ function LoginForm() {
           </div>
 
           <div className="input-group">
+           <FaLock className="icon" />
             <input
               type="password"
               name="password"
