@@ -20,8 +20,8 @@ public class UserdataServiceImpl implements UserdataService {
     }
 
     @Override
-    public Userdata checkuserdetails(String username, String password) {
-     Userdata user =    userdataRepo.findByUsernameAndPassword(username, password);
+    public Userdata checkuserdetails(String email1, String password) {
+     Userdata user = userdataRepo.findByEmailAndPassword(email1, password);
         return user;
     }
 }
