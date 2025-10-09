@@ -63,7 +63,7 @@ function RegisterForm() {
     }
 
     try {
-      const response = await fetch("http://localhost:8082/userdata/register", {
+      const response = await fetch("http://localhost:8082/userdata/registeruserdetails", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -97,7 +97,7 @@ function RegisterForm() {
 
       <div className="register-page">
         <form className="register-form" onSubmit={handleSubmit}>
-          <div className="registerbox"> <h2> Welcome!  </h2>
+          <div className="registerbox"> <h2> Registration!  </h2>
             <p>Sign up by entering the information below</p>
           </div>
 
