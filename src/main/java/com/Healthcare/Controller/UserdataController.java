@@ -26,7 +26,7 @@ public class UserdataController {
     @PostMapping("/logindetails")
     public ResponseEntity<String> logindetails(@RequestBody Userdata loginData)
     {
-      Userdata logindetails =   userdataService.checkuserdetails(loginData.getUsername(), loginData.getPassword());
+      Userdata logindetails =   userdataService.checkuserdetails(loginData.getEmail(), loginData.getPassword());
 
       if (logindetails != null){
           return ResponseEntity.ok("Login Successfully");
