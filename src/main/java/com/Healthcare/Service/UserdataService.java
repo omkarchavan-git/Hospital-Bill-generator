@@ -8,7 +8,7 @@ public interface UserdataService {
     public Userdata adduserdata(Userdata userdata);
 
     //method to check username and pass
-    public Userdata checkuserdetails(String username1, String password1);
+    public Userdata checkuserdetails(String email1, String password1);
 
 
 }
