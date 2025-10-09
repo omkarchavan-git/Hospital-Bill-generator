@@ -5,7 +5,7 @@ import logo from "../../assets/logoImage/PMCLOGO.webp";
 import { FaUser, FaEnvelope, FaLock, FaPhone } from "react-icons/fa";
 
 function LoginForm() {
-  const [formData, setFormData] = useState({ username: "", password: "" });
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ function LoginForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          username: formData.username,
+          email: formData.email,
           password: formData.password,
         }),
       });
@@ -60,11 +60,11 @@ function LoginForm() {
              <FaEnvelope className="icon" />
             <input
               type="text"
-              name="username"
-              value={formData.username}
+              name="email"
+              value={formData.email}
               
               onChange={(e) =>
-                setFormData({ ...formData, username: e.target.value })
+                setFormData({ ...formData, email: e.target.value })
               }
               required
             />
